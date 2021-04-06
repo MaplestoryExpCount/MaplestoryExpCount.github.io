@@ -8,14 +8,16 @@ var x = 0
 var getlevel = level
 var after = 1
 var result = ""
+var exppercentage = exp
 var vm = new Vue({
     el: "#editor",
     data: {
         exp: 0,
-        level: "",
+        level: 1,
         levelexp: " ",
         after: "",
         upexp: "",
+        exppercentage: "",
         itemList: [
             {
                 id: '1',
@@ -67,6 +69,10 @@ var vm = new Vue({
         upexp: function (val) {
             this.exp = this.upexp
         },
+        upexp: function (val) {
+            this.exp = this.upexp
+        },
+
 
 
     }
@@ -80,6 +86,7 @@ $(document).ready(function () {
     $(".druguse button").click(function () {
         var getlevel = $("#a0402").text()
         var exp = $("#a0403").text()
+
         //alert(getlevel + "aa" + exp)
         if (getlevel > 275) { y = 1 }
         else if (getlevel >= 274) { y = 6672530555086 }
@@ -371,6 +378,11 @@ $(document).ready(function () {
             g = parseInt(g, 10)
             getlevel = parseInt(getlevel, 10)
             exp = parseInt(exp, 10)
+            // var exppercentage = $("#a0406").text()
+            // exppercentage = parseFloat(exppercentage, 10)
+            // exppercentage = (exppercentage * y) / 100
+            // exp = exppercentage
+            // alert(exppercentage)
             x += exp + g
             //alert(x + "使用後合計")
             //alert(y + "所需經驗")
@@ -538,6 +550,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             //alert("經驗量足夠提升等級")
+                            x = x - y
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -569,6 +582,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             // //alert("經驗量足夠提升等級")
+                            x = x - y
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -596,11 +610,11 @@ $(document).ready(function () {
             document.getElementById("a0402").innerHTML = getlevel
             document.getElementById("level").value = getlevel
 
-
             percentage = (Math.round(x / y * 10000) / 100.00)
             document.getElementById("expvalue2").style.width = percentage
                 + "%";
             document.getElementById("expusevalue").innerHTML = percentage + "%";
+            document.getElementById("exppercentage").value = percentage
 
             document.getElementById("expvalue2").style.background = "green";
             if ($("#expvalue2").hasClass("run")) {
@@ -911,4 +925,7 @@ $(document).ready(function () {
 
 
     });
+});
+$("#re button").click(function () {
+    location.reload()
 });

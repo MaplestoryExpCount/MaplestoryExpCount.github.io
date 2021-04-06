@@ -19,19 +19,19 @@
 
 <body>
     <div class="main">
-        <nav class="navbar">
-            <div>
+        <nav class="navbar ">
 
-                <p>V233版本&nbsp;經驗成長秘藥計算機</p>
+            <p>V233版本&nbsp;經驗成長秘藥計算機</p>
 
-            </div>
-            <div class="onoffswitch">
+
+            <div class="onoffswitch ">
                 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"
                     checked>
                 <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
                 </label>
+
             </div>
         </nav>
         <div id="editor" class="section1">
@@ -47,10 +47,18 @@
 
             <div class="container">
                 <div class="row input">
-                    <div class="col-md-6">
+
+                    <div class="col-md-5">
                         輸入你的等級<input type="number" v-model.number.lazy="level" max="275" id="level"></div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         輸入你的經驗值<input type="number" v-model.number.lazy="exp" id="exp"></div>
+                    <!-- <div class="col-md-2">
+                        輸入你的經驗值趴數<input type="number" v-model.number.lazy="exppercentage" id="exppercentage" max="100">
+                    </div> -->
+                    <div id="re" class="col-md-2">
+                        <button>清除</button>
+                    </div>
+
                 </div>
                 <div class="hide">
                     <div id="a0401"><span id="useexp"></span></div>
@@ -63,6 +71,7 @@
                     <button id="abcd">修正按鈕</button>
 
                 </div>
+                <!-- <div id="a0406">{{exppercentage}}</div> -->
 
                 <div>使用結果為&nbsp;等級<span id="after" v-model="after"></span></div>
                 <div id="expvalue">
@@ -74,7 +83,9 @@
                     <div class="drugdiv-1 col-md-4" v-for="(item, index) in itemList" :key="item.id">
                         <div class="drugdiv-2">
                             <div class="drugname">{{item.itemName}}</div>
-                            <div class="drugimg"><img v-bind:src="item.imgUrl" alt="">
+                            <div class="drugmargin">
+                                <div class="drugimg"><img v-bind:src="item.imgUrl" alt="">
+                                </div>
                             </div>
                             <div class="druguse">
                                 <p>{{item.price}}</p><button id="button">使用</button>
