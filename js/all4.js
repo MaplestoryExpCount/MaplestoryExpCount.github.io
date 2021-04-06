@@ -8,7 +8,7 @@ var x = 0
 var getlevel = level
 var after = 1
 var result = ""
-var exppercentage = exp
+
 var vm = new Vue({
     el: "#editor",
     data: {
@@ -614,7 +614,6 @@ $(document).ready(function () {
             document.getElementById("expvalue2").style.width = percentage
                 + "%";
             document.getElementById("expusevalue").innerHTML = percentage + "%";
-            document.getElementById("exppercentage").value = percentage
 
             document.getElementById("expvalue2").style.background = "green";
             if ($("#expvalue2").hasClass("run")) {
