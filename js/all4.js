@@ -386,7 +386,6 @@ $(document).ready(function () {
             x += exp + g
             //alert(x + "使用後合計")
             //alert(y + "所需經驗")
-
             switch (g) {
                 case 571115568:
                     Upperlimit = 200;
@@ -424,7 +423,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             // alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
                             $(document).ready(function () {
@@ -453,7 +452,7 @@ $(document).ready(function () {
                             getlevel += 1
 
                             //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -486,7 +485,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -518,7 +517,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -550,7 +549,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -582,7 +581,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             // //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -599,6 +598,9 @@ $(document).ready(function () {
                     $("#result2").text(result)
                         ; break;
             }
+            exp = 0
+            $("#a0403").text(0)
+
             document.getElementById("after").innerHTML = getlevel
             document.getElementById("exp").value = x
             document.getElementById("a0404").innerHTML = y
