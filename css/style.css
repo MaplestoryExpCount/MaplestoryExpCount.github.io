@@ -260,8 +260,33 @@ footer{
 .navbar-1{
     width: 100%;
 }
-
-
+#service{
+    max-width: 100%;
+    max-height: 100%;
+    background: #999999;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+}
+#service p{
+    font-size: 60px;
+    text-align: center;
+    position: absolute;
+    color: white;
+    top: 40%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+}
+#service .main {
+    display: none;
+}
+/* #service footer{
+    display: none;} */
 /*hover*/
 #re button:hover{
     background: rgba(41, 181, 115,0.7);
