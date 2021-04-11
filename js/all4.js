@@ -424,7 +424,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             // alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
                             $(document).ready(function () {
@@ -453,7 +453,7 @@ $(document).ready(function () {
                             getlevel += 1
 
                             //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -486,7 +486,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -518,7 +518,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -550,7 +550,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
@@ -582,7 +582,7 @@ $(document).ready(function () {
                         if (x > y) {
                             getlevel += 1
                             // //alert("經驗量足夠提升等級")
-                            x = x - y
+                            x = x - y - exp
 
                             $(".levelupgif").fadeIn(1500)
                             $(".levelupgif").fadeOut(1500)
