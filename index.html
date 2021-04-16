@@ -51,26 +51,34 @@
             <div class="container">
                 <div class="row input">
 
-                    <div class="col-md-5">
-                        輸入你的等級<input type="number" v-model.number.lazy="level" max="275" id="level"></div>
-                    <div class="col-md-5">
-                        輸入你的經驗值<input type="number" v-model.number.lazy="exp" id="exp"></div>
+                    <div class="col-md-3">
+                        輸入你的等級<input type="number" v-model.number.lazy="level" max="275" min="1" id="level"></div>
+                    <div class="col-md-3">
+                        輸入你的經驗值(請擇一輸入)<input type="number" v-model.number.lazy="exp" id="exp">
+                    </div>
+                    <div class="col-md-3">
+                        輸入你的經驗值趴數(請擇一輸入)<input type="number" v-model.number.lazy="exp1" id="exp1" max="100" min="0">
+                    </div>
                     <!-- <div class="col-md-2">
                         輸入你的經驗值趴數<input type="number" v-model.number.lazy="exppercentage" id="exppercentage" max="100">
                     </div> -->
-                    <div id="re" class="col-md-2">
+                    <div id="re" class="col-md-3">
                         <button>清除</button>
                     </div>
 
                 </div>
+
                 <div class="hide">
                     <div id="a0401"><span id="useexp"></span></div>
                     <div id="a0402"> {{level}}</div>
                     <div id="a0403"> {{exp}}</div>
+
                     <div id="a0404"></div>
+                    <div id="a0405">{{exp1}}</div>
+
                     <input id="a0404input" type="number">
                     <input id="a0403input" type="number">
-                    <span id="upexp" v-model="upexp"></span>
+                    <span id="upexp"></span>
                     <button id="abcd">修正按鈕</button>
 
                 </div>
