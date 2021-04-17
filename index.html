@@ -51,19 +51,23 @@
             <div class="container">
                 <div class="row input">
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         輸入你的等級<input type="number" v-model.number.lazy="level" max="275" min="1" id="level"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         輸入你的經驗值(請擇一輸入)<input type="number" v-model.number.lazy="exp" id="exp">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         輸入你的經驗值趴數(請擇一輸入)<input type="number" v-model.number.lazy="exp1" id="exp1" max="100" min="0">
                     </div>
                     <!-- <div class="col-md-2">
                         輸入你的經驗值趴數<input type="number" v-model.number.lazy="exppercentage" id="exppercentage" max="100">
                     </div> -->
-                    <div id="re" class="col-md-3">
-                        <button>清除</button>
+                    <br>
+                    <div id="re" class="col-md-6 re">
+                        <button>清除所有格</button>
+                    </div>
+                    <div id="reexp" class="col-md-6 re">
+                        <button>清除經驗</button>
                     </div>
 
                 </div>

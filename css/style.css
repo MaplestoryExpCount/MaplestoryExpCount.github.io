@@ -26,13 +26,13 @@ nav {
     line-height: 60px;
 
 }
-#re{
+.re{
     float: left;
  
     color: white;
     margin:10px 0px;
 }
-#re button{
+.re button{
     color: white;
     width: 100%;
     background: rgba(41, 181, 115,1);

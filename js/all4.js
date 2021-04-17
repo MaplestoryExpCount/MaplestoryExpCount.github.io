@@ -87,6 +87,20 @@ $(".druguse button").removeClass("buttontime")
 
 $(document).ready(function () {
     $(".druguse button").click(function () {
+        $("#reexp button").click(function () {
+            $("#a0403").text(0)
+            $("#a0405").text(0)
+            document.getElementById("exp1").value = ""
+            document.getElementById("exp").value = ""
+            exp = 0
+            exp1 = 0
+            x = 0
+            $(document).ready(function () {
+                $("#abcd").get(0).click();
+            })
+
+        });
+
         var btntime = $(this)
         btntime.prop('disabled', true);
         window.setTimeout(function () {
