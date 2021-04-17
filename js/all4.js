@@ -115,11 +115,8 @@ $(document).ready(function () {
         var getlevel = $("#a0402").text()
         var exp = $("#a0403").text()
         var exp1 = $("#a0405").text()
-        if (exp == 0 && exp1 == 0) {
-            alert("經驗值需輸入")
 
-        }
-        else if (exp > 0 && exp1 > 0 || exp < 0 && exp1 > 0 || exp > 0 && exp1 < 0 || exp < 0 || exp1 < 0) {
+        if (exp > 0 && exp1 > 0 || exp < 0 && exp1 > 0 || exp > 0 && exp1 < 0 || exp < 0 || exp1 < 0) {
             alert("經驗值輸入方式有誤")
 
         } else if (exp >= 0 || exp1 >= 0 && getlevel > 0) {
@@ -404,7 +401,6 @@ $(document).ready(function () {
                 percent = (parseInt(percent, 10)) / 100 * y
                 exp = percent
 
-                x = 0
             }
             if (getlevel >= 276) {
                 alert("超過應有等級請重新輸入 目前版本應小於275等")
