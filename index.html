@@ -57,7 +57,8 @@
                         輸入你的經驗值(請擇一輸入)<input type="number" v-model.number.lazy="exp" id="exp">
                     </div>
                     <div class="col-md-4">
-                        輸入你的經驗值趴數(請擇一輸入)<input type="number" v-model.number.lazy="exp1" id="exp1" max="100" min="0">
+                        輸入你的經驗值趴數(請擇一輸入)<input type="number" disabled="disabled" placeholder="輸入此格暫時會導致問題因此暫停輸入"
+                            v-model.number.lazy="exp1" id="exp1" max="100" min="0">
                     </div>
                     <!-- <div class="col-md-2">
                         輸入你的經驗值趴數<input type="number" v-model.number.lazy="exppercentage" id="exppercentage" max="100">
