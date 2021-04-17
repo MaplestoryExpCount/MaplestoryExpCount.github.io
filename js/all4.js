@@ -115,8 +115,12 @@ $(document).ready(function () {
         var getlevel = $("#a0402").text()
         var exp = $("#a0403").text()
         var exp1 = $("#a0405").text()
-        if (exp > 0 && exp1 > 0 || exp < 0 && exp1 > 0 || exp > 0 && exp1 < 0) {
-            alert("經驗值請擇一輸入")
+        if (exp == 0 && exp1 == 0) {
+            alert("經驗值需輸入")
+
+        }
+        else if (exp > 0 && exp1 > 0 || exp < 0 && exp1 > 0 || exp > 0 && exp1 < 0 || exp < 0 || exp1 < 0) {
+            alert("經驗值輸入方式有誤")
 
         } else if (exp >= 0 || exp1 >= 0 && getlevel > 0) {
             //alert(getlevel + "aa" + exp)
@@ -399,6 +403,8 @@ $(document).ready(function () {
                 percent = $("#a0405").text()
                 percent = (parseInt(percent, 10)) / 100 * y
                 exp = percent
+
+                x = 0
             }
             if (getlevel >= 276) {
                 alert("超過應有等級請重新輸入 目前版本應小於275等")
@@ -521,6 +527,7 @@ $(document).ready(function () {
                             if (x > y) {
                                 getlevel += 1
                                 //alert("經驗量足夠提升等級")
+
                                 x = x - y - exp
 
                                 $(".levelupgif").fadeIn(1500)
@@ -553,6 +560,7 @@ $(document).ready(function () {
                             if (x > y) {
                                 getlevel += 1
                                 //alert("經驗量足夠提升等級")
+
                                 x = x - y - exp
 
                                 $(".levelupgif").fadeIn(1500)
@@ -950,9 +958,9 @@ $(document).ready(function () {
                 alert("等級請輸入正數")
             }
 
-            //     else if (exp < 0 || exp1 < 0) {
-            //     alert("請勿輸入負數")
-            // }
+            else if (exp < 0 || exp1 < 0) {
+                alert("請勿輸入負數")
+            }
 
         }
     });
