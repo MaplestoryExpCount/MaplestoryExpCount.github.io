@@ -126,13 +126,13 @@ body {
 
 }
 .drugname{
-    color: black;
+    color: white;
     font-size: 16px;
-    text-align: center;
     height: 30px;
     line-height: 40px;
     width: 100%;
     margin: 10px 0px;
+    text-align: center;
 }
 .drugmargin{
     margin-bottom: 10px ;
@@ -166,9 +166,49 @@ body {
     height: 30px;
     color: white;
     border-radius: 20px;
+    z-index: 3;
+
+}
+#button span{
+    z-index: 53;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 20px;
+}
+/* .buttontime{
+    position:relative;
+    background:none;
+    border: none;
+height: 30px;
+    width: 0%;
+    animation: buttontime;
+    animation-duration: 3s;
+    border-radius: 20px;
+    z-index: 50;
+}
+
+@keyframes buttontime {
+    0%{
+        width: 0px;
+        border-bottom:0px
+        
+    }
+    100%{
+        width: 90%;
+        border-bottom: 2px white solid;
+    }
+    
+} */
+button span{
+    z-index: 53;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 20px;
 }
 .drugdiv-1{
-    padding: 0px 80px;
+    padding: 0px 60px;
 }
 .drugdiv-2{
     width: 100%;
@@ -176,6 +216,7 @@ body {
     margin: 20px 0px;
     
     background: #88b088;
+    border-radius: 20px;
 
 }
 

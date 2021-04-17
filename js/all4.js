@@ -83,17 +83,28 @@ var vm = new Vue({
 
 });
 
-
+$(".druguse button").removeClass("buttontime")
 
 $(document).ready(function () {
     $(".druguse button").click(function () {
+        var btntime = $(this)
+        btntime.prop('disabled', true);
+        window.setTimeout(function () {
+            btntime.prop('disabled', false)
+        }, 1000);
+        if ($(this).children("#buttontime").hasClass("buttontime")) {
+            $(this).children("#buttontime").toggleClass("buttontime")
+
+        } else {
+            $(this).children("#buttontime").addClass("buttontime")
+        }
         var getlevel = $("#a0402").text()
         var exp = $("#a0403").text()
         var exp1 = $("#a0405").text()
         if (exp > 0 && exp1 > 0 || exp < 0 && exp1 > 0 || exp > 0 && exp1 < 0) {
             alert("經驗值請擇一輸入")
 
-        } else if (exp > 0 || exp1 > 0 && getlevel > 0) {
+        } else if (exp >= 0 || exp1 >= 0 && getlevel > 0) {
             //alert(getlevel + "aa" + exp)
             if (getlevel > 275) { y = 1 }
             else if (getlevel >= 274) { y = 6672530555086 }
@@ -611,12 +622,14 @@ $(document).ready(function () {
                 }
                 exp = 0
                 $("#a0403").text(0)
+                $("#a0405").text(0)
+
+                document.getElementById("exp1").value = ""
 
                 document.getElementById("after").innerHTML = getlevel
                 document.getElementById("exp").value = x
                 document.getElementById("a0404").innerHTML = y
                 document.getElementById("resultlevel").innerHTML = getlevel
-                document.getElementById("exp1").value = ""
 
                 document.getElementById("upexp").innerHTML = x
 
@@ -919,16 +932,14 @@ $(document).ready(function () {
 
                 });
             }
+            else if (getlevel < 0) {
+                alert("等級請輸入正數")
+            }
 
-        }
-        //     else if (exp < 0 || exp1 < 0) {
-        //     alert("請勿輸入負數")
-        // }
-        else if (getlevel < 0) {
-            alert("等級請輸入正數")
-        }
-        else {
-            alert("經驗請輸入正數")
+            //     else if (exp < 0 || exp1 < 0) {
+            //     alert("請勿輸入負數")
+            // }
+
         }
     });
 });

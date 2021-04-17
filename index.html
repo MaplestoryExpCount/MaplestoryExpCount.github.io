@@ -74,7 +74,6 @@
                     <div id="a0403"> {{exp}}</div>
 
                     <div id="a0404"></div>
-                    <div id="a0405">{{exp1}}</div>
 
                     <input id="a0404input" type="number">
                     <input id="a0403input" type="number">
@@ -82,6 +81,8 @@
                     <button id="abcd">修正按鈕</button>
 
                 </div>
+                <div id="a0405">{{exp1}}</div>
+
                 <!-- <div id="a0406">{{exppercentage}}</div> -->
 
                 <div>使用結果為&nbsp;等級<span id="after" v-model="after"></span></div>
@@ -93,14 +94,21 @@
                 <div class="row ">
                     <div class="drugdiv-1 col-md-4" v-for="(item, index) in itemList" :key="item.id">
                         <div class="drugdiv-2">
-                            <div class="drugname">{{item.itemName}}</div>
+                            <div class="drugname">
+                                <p>{{item.itemName}}
+                            </div>
                             <div class="drugmargin">
                                 <div class="drugimg"><img v-bind:src="item.imgUrl" alt="">
                                 </div>
                             </div>
                             <div class="druguse">
-                                <p>{{item.price}}</p><button id="button">使用</button>
+                                <p>{{item.price}}</p>
+                                <button id="button">
+                                    <div id="buttontime">
+                                    </div>
+                                    <span>使用</span>
 
+                                </button>
                             </div>
                         </div>
                     </div>
