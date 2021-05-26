@@ -13,7 +13,7 @@ var exp1 = ""
 var vm = new Vue({
     el: "#editor",
     data: {
-        exp: "",
+        exp:0,
         level: 1,
         levelexp: " ",
         after: "",
