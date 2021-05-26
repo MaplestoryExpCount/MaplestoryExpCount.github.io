@@ -445,9 +445,10 @@ transition: background 300ms linear;
 
 }
 .prompta{
-    text-indent : -5em ;
-    margin-left : 4em;
+    text-indent : -4em ;
+    margin-left : 8em;
     display: none;
+    margin-right:4em;
 
 
 }
