@@ -10,42 +10,42 @@ var vm = new Vue({
             {
                 id: '1',
                 itemName: '200等以下升級藥水',
-                imgUrl: 'img/exp.PNG',
+                imgUrl: 'img/exp.png',
                 price: '5571115568',
                 count: '1'
             },
             {
                 id: '2',
                 itemName: '210等以下升級藥水',
-                imgUrl: 'img/exp.PNG',
+                imgUrl: 'img/exp.png',
                 price: '76120258214',
                 count: '1'
             },
             {
                 id: '3',
                 itemName: '220等以下升級藥水',
-                imgUrl: 'img/exp.PNG',
+                imgUrl: 'img/exp.png',
                 price: '33644667337',
                 count: '1'
             },
             {
                 id: '4',
                 itemName: '230等以下升級藥水',
-                imgUrl: 'img/exp.PNG',
+                imgUrl: 'img/exp.png',
                 price: '105634315757',
                 count: '1'
             },
             {
                 id: '5',
                 itemName: '240等以下升級藥水',
-                imgUrl: 'img/exp.PNG',
+                imgUrl: 'img/exp.png',
                 price: '294389628937',
                 count: '1'
             },
             {
                 id: '6',
                 itemName: '250等以下升級藥水',
-                imgUrl: 'img/exp.PNG',
+                imgUrl: 'img/exp.png',
                 price: '650378595225',
                 count: '1'
             },
