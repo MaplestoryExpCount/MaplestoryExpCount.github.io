@@ -982,3 +982,6 @@ $(document).ready(function () {
 $("#re button").click(function () {
     location.reload()
 });
+$(".prompttitle").click(function () {
+    $(".prompta").toggle();
+});
