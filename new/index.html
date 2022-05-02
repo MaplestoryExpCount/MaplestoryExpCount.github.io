@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <p>V235版本&nbsp;經驗成長秘藥計算機 Beta 1.0.X</p>
+        <div class="onoffswitch ">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"
+                checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
+    </nav>
+    <div class="main">
+        <section>
+            <div class="row">
+
+
+                <div class="col-8">
+
+                    <div id="app">
+                        <div class="row expcountsection">
+                            <div class="col-4">
+                                輸入你的等級：
+                                <input type="number" v-model="expinput.level" id="level" min="140"
+                                    max="300">{{expinput.level}}
+                            </div>
+                            <div class="col-4">
+                                輸入你的經驗值：
+                                <input type="number" v-model="expinput.exp" id="exp">{{expinput.exp}}
+                            </div>
+                            <div class="col-4">
+                                輸入你的經驗值趴數：
+                                <input type="number" v-model="expinput.exp_per" min="0" max="100"
+                                    id="exp_per">{{expinput.exp_per}}
+                            </div>
+                        </div>
+                        <p>等級：{{expinput.level}}&nbsp;&nbsp;&nbsp; 經驗：{{expinput.exp_per}}&nbsp; %</p>
+
+                        <div class="col-12 expshow-1">
+                            <div class="col-12 "></div>
+                        </div>
+                        <div class="row expchoose">
+                            <div v-for="item in itemchoose" class="col-4">
+                                <div class="drugdiv">
+                                    {{item.name}}
+                                    <br>
+                                    <div class="drugimg">
+                                        <img src="img/exp.png">
+                                    </div>
+                                    <button>使用</button>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"></div>
+
+        </section>
+
+    </div>
+    <div><button id="asd">123456</button></div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/exp.js"></script>
+
+    <script>
+        var exp_per;
+        Vue.createApp({
+            data: function () {
+                return {
+                    expinput: {
+                        level: 140,
+                        exp: 0,
+                        exp_per: 0,
+                    },
+
+
+                    itemchoose: [
+                        {
+                            name: "200等以下升級藥水",
+
+                        },
+                        {
+                            name: "210等以下升級藥水",
+                        },
+                        {
+                            name: "220等以下升級藥水",
+
+                        },
+                        {
+                            name: "230等以下升級藥水",
+                        },
+                        {
+                            name: "240等以下升級藥水",
+
+                        },
+                        {
+                            name: "250等以下升級藥水",
+                        },
+                    ]
+
+                }
+            },
+            methods: {
+
+            },
+            mounted() {
+
+            },
+        }).mount("#app")
+
+        $('.drugdiv button').each((index, btn) => {
+            $(btn).click(function () {
+
+
+                level = $("#level").val() * 1;
+                exp = $("#exp").val();
+                exp_per = $("#exp_per").val();
+
+                let level_now = explist[level];
+                if (level = "") {
+                    alert("請輸入等級" + level);
+                    return;
+                }
+                else if ($("#level").val() < 140 || $("#level").val() > 300) {
+                    alert("請輸入等級範圍在140-300之間");
+                    return;
+                }
+                $(".expshow-1 div").addClass("expshow-2");
+                $(".expshow-1 div").css("width", (exp_per + "%"));
+
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>

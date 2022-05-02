@@ -1,0 +1,83 @@
+* {
+    font-family: "微軟正黑體";
+
+}
+
+body,
+html {
+    margin: 0;
+    height: 100%;
+    background: #ebe6e6;
+}
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    background: #29b573;
+    color: white;
+    line-height: 60px;
+    padding: 0.5rem 1rem;
+}
+
+.navbar p {
+    font-size: 20px;
+    margin: 0px;
+    line-height: 60px;
+}
+
+.main {
+    margin: auto;
+}
+
+section {
+    margin: 20px;
+    color: #000;
+}
+
+.expcountsection input {
+    width: 100%;
+}
+
+.drugdiv {
+    background: #88b088;
+    padding: 20px;
+    margin: 20px 0px;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+.drugdiv img {
+    margin: 0 auto;
+    width: 30%;
+    height: 30%;
+}
+
+.drugimg {
+    padding: 10px;
+    margin: 10px;
+}
+
+.drugdiv button {
+    border: 0px;
+    width: 50%;
+    border-radius: 10px;
+    background: #1e8b58;
+    color: white;
+}
+
+.expshow-1 {
+    background: rgb(182, 213, 182);
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+}
+
+.expshow-2 {
+    background: #1e8b58;
+    height: 50px;
+    border-radius: 30px;
+    width: 0px;
+}
