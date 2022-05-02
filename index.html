@@ -17,161 +17,162 @@
 </head>
 
 <body>
-    <!-- <div id="service">
-        <p>系統維修中~暫停使用</p> -->
+    <div id="service">
+        <p>因Vue版本更新 因此系統維修中~暫停使用</p>
+        <a href="new/index.html">製作地區</a>
 
 
-    <div class="main">
-        <nav class="navbar ">
+        <div class="main">
+            <nav class="navbar ">
 
-            <p>V233版本&nbsp;經驗成長秘藥計算機 Beta 1.0.2</p>
+                <p>V233版本&nbsp;經驗成長秘藥計算機 Beta 1.0.2</p>
 
 
-            <div class="onoffswitch ">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"
-                    checked>
-                <label class="onoffswitch-label" for="myonoffswitch">
-                    <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
-                </label>
+                <div class="onoffswitch ">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"
+                        tabindex="0" checked>
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
 
-            </div>
-        </nav>
-        <div id="editor" class="section1">
-            <div class="prompt container">
-                <p class="prompttitle">使用說明（點擊後可看說明)</p>
-                <div class="prompta ">
-                    <p>使用說明：輸入您的等級的欄位中，輸入您的等級，再輸入你的經驗值（需實值），若你的等級範圍在下列的使用類型等級之下，即會直接提高1等，且超過的經驗值會再額外加進去；而如果等級範圍已經超過該等級，即給該等級藥水-1的經驗量。<br>
-                        且結果會顯示在下方處
-                    </p>
-                    <p>使用限制：使用1等以上、275等以下範圍，且經驗值與等級皆不得為負</p>
-                    <p>使用建議：建議使用者輸入200等以上，以達到更佳效果</p>
-                    <p>動畫效果：右上角按鈕點擊之後，可以取消升等動畫</p>
                 </div>
-            </div>
-
-            <section id="section2" class=" container  ">
-                原先你的等級為{{level}}
-
-
-            </section>
-
-            <div class="container">
-                <div class="row input">
-
-                    <div class="col-md-4">
-                        輸入你的等級<input type="number" v-model.number.lazy="level" max="275" min="1" id="level"></div>
-                    <div class="col-md-4">
-                        輸入你的經驗值(請擇一輸入)<input type="number" v-model.number.lazy="exp" id="exp">
+            </nav>
+            <div id="editor" class="section1">
+                <div class="prompt container">
+                    <p class="prompttitle">使用說明（點擊後可看說明)</p>
+                    <div class="prompta ">
+                        <p>使用說明：輸入您的等級的欄位中，輸入您的等級，再輸入你的經驗值（需實值），若你的等級範圍在下列的使用類型等級之下，即會直接提高1等，且超過的經驗值會再額外加進去；而如果等級範圍已經超過該等級，即給該等級藥水-1的經驗量。<br>
+                            且結果會顯示在下方處
+                        </p>
+                        <p>使用限制：使用1等以上、275等以下範圍，且經驗值與等級皆不得為負</p>
+                        <p>使用建議：建議使用者輸入200等以上，以達到更佳效果</p>
+                        <p>動畫效果：右上角按鈕點擊之後，可以取消升等動畫</p>
                     </div>
-                    <div class="col-md-4">
-                        輸入你的經驗值趴數(請擇一輸入)<input type="number" disabled="disabled" placeholder="輸入此格暫時會導致問題因此暫停輸入"
-                            v-model.number.lazy="exp1" id="exp1" max="100" min="0">
-                    </div>
-                    <!-- <div class="col-md-2">
+                </div>
+
+                <section id="section2" class=" container  ">
+                    原先你的等級為{{level}}
+
+
+                </section>
+
+                <div class="container">
+                    <div class="row input">
+
+                        <div class="col-md-4">
+                            輸入你的等級<input type="number" v-model.number.lazy="level" max="275" min="1" id="level"></div>
+                        <div class="col-md-4">
+                            輸入你的經驗值(請擇一輸入)<input type="number" v-model.number.lazy="exp" id="exp">
+                        </div>
+                        <div class="col-md-4">
+                            輸入你的經驗值趴數(請擇一輸入)<input type="number" disabled="disabled" placeholder="輸入此格暫時會導致問題因此暫停輸入"
+                                v-model.number.lazy="exp1" id="exp1" max="100" min="0">
+                        </div>
+                        <!-- <div class="col-md-2">
                         輸入你的經驗值趴數<input type="number" v-model.number.lazy="exppercentage" id="exppercentage" max="100">
                     </div> -->
-                    <br>
-                    <div id="re" class="col-md-6 re">
-                        <button>清除所有格</button>
+                        <br>
+                        <div id="re" class="col-md-6 re">
+                            <button>清除所有格</button>
+                        </div>
+                        <div id="reexp" class="col-md-6 re">
+                            <button>清除經驗</button>
+                        </div>
+
                     </div>
-                    <div id="reexp" class="col-md-6 re">
-                        <button>清除經驗</button>
+
+                    <div class="hide">
+                        <div id="a0401"><span id="useexp"></span></div>
+                        <div id="a0402"> {{level}}</div>
+                        <div id="a0403"> {{exp}}</div>
+
+                        <div id="a0404"></div>
+                        <div id="a0405">{{exp1}}</div>
+
+                        <input id="a0404input" type="number">
+                        <input id="a0403input" type="number">
+                        <span id="upexp"></span>
+                        <button id="abcd">修正按鈕</button>
+
                     </div>
 
-                </div>
+                    <!-- <div id="a0406">{{exppercentage}}</div> -->
 
-                <div class="hide">
-                    <div id="a0401"><span id="useexp"></span></div>
-                    <div id="a0402"> {{level}}</div>
-                    <div id="a0403"> {{exp}}</div>
-
-                    <div id="a0404"></div>
-                    <div id="a0405">{{exp1}}</div>
-
-                    <input id="a0404input" type="number">
-                    <input id="a0403input" type="number">
-                    <span id="upexp"></span>
-                    <button id="abcd">修正按鈕</button>
-
-                </div>
-
-                <!-- <div id="a0406">{{exppercentage}}</div> -->
-
-                <div>使用結果為&nbsp;等級<span id="after" v-model="after"></span></div>
-                <div id="expvalue">
-                    <div id="expvalue2">
-                        <span id="expusevalue"></span>
+                    <div>使用結果為&nbsp;等級<span id="after" v-model="after"></span></div>
+                    <div id="expvalue">
+                        <div id="expvalue2">
+                            <span id="expusevalue"></span>
+                        </div>
                     </div>
-                </div>
-                <div class="row ">
-                    <div class="drugdiv-1 col-md-4" v-for="(item, index) in itemList" :key="item.id">
-                        <div class="drugdiv-2">
-                            <div class="drugname">
-                                <p>{{item.itemName}}
-                            </div>
-                            <div class="drugmargin">
-                                <div class="drugimg"><img v-bind:src="item.imgUrl" alt="">
+                    <div class="row ">
+                        <div class="drugdiv-1 col-md-4" v-for="(item, index) in itemList" :key="item.id">
+                            <div class="drugdiv-2">
+                                <div class="drugname">
+                                    <p>{{item.itemName}}
                                 </div>
-                            </div>
-                            <div class="druguse">
-                                <p>{{item.price}}</p>
-                                <button id="button">
-                                    <div id="buttontime">
+                                <div class="drugmargin">
+                                    <div class="drugimg"><img v-bind:src="item.imgUrl" alt="">
                                     </div>
-                                    <span>使用</span>
+                                </div>
+                                <div class="druguse">
+                                    <p>{{item.price}}</p>
+                                    <button id="button">
+                                        <div id="buttontime">
+                                        </div>
+                                        <span>使用</span>
 
-                                </button>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="result1">
-                    使用了
-                    <span id="result2"></span><br>
-                    <span>本次使用從{{level}}到<span id="resultlevel"></span></span>
+                    <div id="result1">
+                        使用了
+                        <span id="result2"></span><br>
+                        <span>本次使用從{{level}}到<span id="resultlevel"></span></span>
 
-                </div>
-
-            </div>
-            <div class="levelupgif levelupgif2">
-                <section>
-                    <div class="leveupgiffont">
-                        <p class="levelgiffont">等級&nbsp;&nbsp;&nbsp;&nbsp;<span id="upspan"></span></p>
-                        <br>
-                        <p class="levlegifchinese">等級上昇了!</p>
                     </div>
-                </section>
-            </div>
-
-            <!-- <div><img src="img/levelup.gif"></div> -->
-
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    實際效果依使用為準，此網頁僅提供模擬<br>
-                    感謝巴哈姆特網友g555555g（玥御夜）提供經驗表 </div>
-                <div class="col-md-6 ">
-
-
-                    <!-- hitwebcounter Code START -->
-                    本網頁累計使用人數<br>
-                    <!-- hitwebcounter Code START -->
-                    <a href="https://www.hitwebcounter.com" target="_blank">
-                        <img src="https://hitwebcounter.com/counter/counter.php?page=7792232&style=0010&nbdigits=5&type=ip&initCount=https:"
-                            title="Free Counter" Alt="web counter" border="0" /></a>
-
-
-
 
                 </div>
+                <div class="levelupgif levelupgif2">
+                    <section>
+                        <div class="leveupgiffont">
+                            <p class="levelgiffont">等級&nbsp;&nbsp;&nbsp;&nbsp;<span id="upspan"></span></p>
+                            <br>
+                            <p class="levlegifchinese">等級上昇了!</p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- <div><img src="img/levelup.gif"></div> -->
+
             </div>
         </div>
-    </footer>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        實際效果依使用為準，此網頁僅提供模擬<br>
+                        感謝巴哈姆特網友g555555g（玥御夜）提供經驗表 </div>
+                    <div class="col-md-6 ">
+
+
+                        <!-- hitwebcounter Code START -->
+                        本網頁累計使用人數<br>
+                        <!-- hitwebcounter Code START -->
+                        <a href="https://www.hitwebcounter.com" target="_blank">
+                            <img src="https://hitwebcounter.com/counter/counter.php?page=7792232&style=0010&nbdigits=5&type=ip&initCount=https:"
+                                title="Free Counter" Alt="web counter" border="0" /></a>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="js/bootstrap-4.0.0.js"></script>
     <script src="js/all4.js"></script>
