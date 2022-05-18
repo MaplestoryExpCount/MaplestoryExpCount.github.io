@@ -26,41 +26,36 @@
     <div class="main">
         <section>
             <div class="row">
-
-
-                <div class="col-8">
-
+                <div class="col-md-8">
                     <div id="app">
                         <div class="row expcountsection">
-                            <div class="col-4">
+                            <div class="col-md-4">
                                 輸入你的等級：
-                                <input type="number" v-model="expinput.level" id="level" min="140"
-                                    max="300">{{expinput.level}}
+                                <input type="number" v-model="expinput.level" id="level" min="140" max="300">
                             </div>
-                            <div class="col-4">
+                            <div class="col-md-4">
                                 輸入你的經驗值：
-                                <input type="number" v-model="expinput.exp" id="exp">{{expinput.exp}}
+                                <input type="number" v-model="expinput.exp" id="exp">
                             </div>
-                            <div class="col-4">
+                            <div class="col-md-4">
                                 輸入你的經驗值趴數：
-                                <input type="number" v-model="expinput.exp_per" min="0" max="100"
-                                    id="exp_per">{{expinput.exp_per}}
+                                <input type="number" v-model="expinput.exp_per" min="0" max="100" id="exp_per">
                             </div>
                         </div>
                         <p>等級：{{expinput.level}}&nbsp;&nbsp;&nbsp; 經驗：{{expinput.exp_per}}&nbsp; %</p>
 
-                        <div class="col-12 expshow-1">
-                            <div class="col-12 "></div>
+                        <div class="col-md-12 expshow-1">
+                            <div class="col-md-12 "></div>
                         </div>
                         <div class="row expchoose">
-                            <div v-for="item in itemchoose" class="col-4">
+                            <div v-for="item in itemchoose" class="col-md-4">
                                 <div class="drugdiv">
                                     {{item.name}}
                                     <br>
                                     <div class="drugimg">
                                         <img src="img/exp.png">
                                     </div>
-                                    <button>使用</button>
+                                    <button :value="item.druglevel">使用</button>
 
 
                                 </div>
@@ -70,88 +65,71 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="col-4"></div>
+                <div class="col-md-4 Results_table  ">
+                    <div class="row result_title">
+                        <div class="col-md-3 ">
+                            <div>使用前等級</div>
+                        </div>
+                        <div class="col-md-3 ">
+                            <div>使用前經驗</div>
+                        </div>
+                        <div class="col-md-3 ">
+                            <div>使用後等級</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div>使用後經驗</div>
+                        </div>
+                    </div>
+                    <div class="row result_contant">
 
+                    </div>
+                    <div class="row result_footer">
+                        <div>
+                            <p>本區只記錄後10筆記錄</p>
+                            <p><a href="js/exp.js">查看等級經驗表</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1"
+                            onclick="myFunction()">
+                            查看結果
+                        </button>
+                    </div>
+                    <div class="collapse" id="collapseExample1">
+                        <div class="card card-body" id="demo">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </div>
-    <div><button id="asd">123456</button></div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    實際效果依使用為準，此網頁僅提供模擬<br>
+                    感謝巴哈姆特網友g555555g（玥御夜）提供經驗表 </div>
+                <div class="col-md-6 ">
+                    <!-- hitwebcounter Code START -->
+                    本網頁累計使用人數<br>
+                    <!-- hitwebcounter Code START -->
+                    <a href="https://www.hitwebcounter.com" target="_blank">
+                        <img src="https://hitwebcounter.com/counter/counter.php?page=7792232&style=0010&nbdigits=5&type=ip&initCount=https:"
+                            title="Free Counter" Alt="web counter" border="0" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/exp.js"></script>
-
-    <script>
-        var exp_per;
-        Vue.createApp({
-            data: function () {
-                return {
-                    expinput: {
-                        level: 140,
-                        exp: 0,
-                        exp_per: 0,
-                    },
-
-
-                    itemchoose: [
-                        {
-                            name: "200等以下升級藥水",
-
-                        },
-                        {
-                            name: "210等以下升級藥水",
-                        },
-                        {
-                            name: "220等以下升級藥水",
-
-                        },
-                        {
-                            name: "230等以下升級藥水",
-                        },
-                        {
-                            name: "240等以下升級藥水",
-
-                        },
-                        {
-                            name: "250等以下升級藥水",
-                        },
-                    ]
-
-                }
-            },
-            methods: {
-
-            },
-            mounted() {
-
-            },
-        }).mount("#app")
-
-        $('.drugdiv button').each((index, btn) => {
-            $(btn).click(function () {
-
-
-                level = $("#level").val() * 1;
-                exp = $("#exp").val();
-                exp_per = $("#exp_per").val();
-
-                let level_now = explist[level];
-                if (level = "") {
-                    alert("請輸入等級" + level);
-                    return;
-                }
-                else if ($("#level").val() < 140 || $("#level").val() > 300) {
-                    alert("請輸入等級範圍在140-300之間");
-                    return;
-                }
-                $(".expshow-1 div").addClass("expshow-2");
-                $(".expshow-1 div").css("width", (exp_per + "%"));
-
-            });
-        });
-
-    </script>
-
+    <script src="js/bootstrap.js"></script>
+    <script src="js/all.js"></script>
 
 </body>
 
