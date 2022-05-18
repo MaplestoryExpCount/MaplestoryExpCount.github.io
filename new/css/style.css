@@ -113,10 +113,10 @@ section {
     text-align: center;
 }
 
-/*
+
 .phone {
     display: none;
-}*/
+}
 
 footer {
     width: 100%;
@@ -129,7 +129,7 @@ footer {
     font-size: 14px;
 }
 
-/*
+
 @media screen and (max-width:768px) {
 
     .phone {
@@ -148,4 +148,4 @@ footer {
         }
 
     }
-}*/
+}
