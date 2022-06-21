@@ -106,7 +106,6 @@ $('.drugdiv button').each((index, btn) => {
             var ra = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
             sum = 0.0;
             sum2 = 0.0;
-            alert(ra);
             var item = 0;
             for (var i = 0; i < 10; i++) {
                 if (sum > parseInt(ra) || parseFloat(exp_data2[level - 141][i]) == 0) {
