@@ -94,7 +94,14 @@ $('.drugdiv button').each((index, btn) => {
             alert("本秘藥不提供給200等以下使用，請選擇其他藥水" + druglevel);
             return 0;
         }
-
+        if (level = "") {
+            alert("請輸入等級" + level);
+            return 0;
+        }
+        else if ($("#level").val() <=140 || $("#level").val() > 300) {
+            alert("請輸入等級範圍在141-300之間");
+            return 0;
+        }
         var inner_add = document.querySelectorAll('.Results_table .result_contant');
         inner_add[0].innerHTML += '<div class="row resultadd"><div class="col-3 "></div><div class="col-3"></div><div class="col-3"></div><div class="col-3"></div></div>';
         if (count > 10) {
@@ -215,14 +222,7 @@ $('.drugdiv button').each((index, btn) => {
 
 
         count++;
-        if (level = "") {
-            alert("請輸入等級" + level);
-            return;
-        }
-        else if ($("#level").val() < 140 || $("#level").val() > 300) {
-            alert("請輸入等級範圍在140-300之間");
-            return;
-        }
+
         $(".expshow-1 div").addClass("expshow-2");
         $(".expshow-1 div").css("width", level_per + "%");
         $(".expshow-1 div").text(level_per + "%");
