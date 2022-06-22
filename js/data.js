@@ -51,7 +51,6 @@ for (var j = 1; j < 60; j++) {
     $("#data2 .table_d2:nth-of-type(" + j + ") div:nth-of-type(" + 9 + ")").html(tArray[j][7] + "%")
     $("#data2 .table_d2:nth-of-type(" + j + ") div:nth-of-type(" + 10 + ")").html(tArray[j][8] + "%")
     $("#data2 .table_d2:nth-of-type(" + j + ") div:nth-of-type(" + 11 + ")").html(tArray[j][9] + "%")
-
     $("#data2 .table_d2:nth-of-type(" + 45 + ") div:nth-of-type(" + 2 + ")").html("55%")
     $("#data2 .table_d2:nth-of-type(" + 50 + ") div:nth-of-type(" + 2 + ")").html("55%")
 

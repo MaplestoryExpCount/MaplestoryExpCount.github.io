@@ -86,22 +86,15 @@ $('.drugdiv button').each((index, btn) => {
         exp_per = $("#exp_per").val();
 
         let level_now = explist[level];//所需鳩驗
-        if (druglevel == 200 & level >=201) {
-            alert("本秘藥提供給141等到200等使用，請選擇其他藥水" );
+        if (druglevel == 200 & level > 200) {
+            alert("本秘藥提供給141等到200等使用，請選擇其他藥水" + druglevel);
             return 0;
         }
         if (druglevel != 200 & level < 200) {
             alert("本秘藥不提供給200等以下使用，請選擇其他藥水" + druglevel);
             return 0;
         }
-        if (level = "") {
-            alert("請輸入等級" + level);
-            return 0;
-        }
-        else if ($("#level").val() <=140 || $("#level").val() > 300) {
-            alert("請輸入等級範圍在141-300之間");
-            return 0;
-        }
+
         var inner_add = document.querySelectorAll('.Results_table .result_contant');
         inner_add[0].innerHTML += '<div class="row resultadd"><div class="col-3 "></div><div class="col-3"></div><div class="col-3"></div><div class="col-3"></div></div>';
         if (count > 10) {
@@ -113,6 +106,7 @@ $('.drugdiv button').each((index, btn) => {
             var ra = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
             sum = 0.0;
             sum2 = 0.0;
+            alert(ra);
             var item = 0;
             for (var i = 0; i < 10; i++) {
                 if (sum > parseInt(ra) || parseFloat(exp_data2[level - 141][i]) == 0) {
@@ -172,7 +166,6 @@ $('.drugdiv button').each((index, btn) => {
             e_per.value = level_per;
             data3[count] = level + 1;
 
-            data3[count] = level + 1;
             inner[0].innerHTML += '<div>' + level + '</div>';
             inner[1].innerHTML += '<div> ' + exp_per + ' %</div>';
             inner[2].innerHTML += '<div>' + (parseInt(level) + 1) + '</div>';
@@ -222,7 +215,14 @@ $('.drugdiv button').each((index, btn) => {
 
 
         count++;
-
+        if (level = "") {
+            alert("請輸入等級" + level);
+            return;
+        }
+        else if ($("#level").val() < 140 || $("#level").val() > 300) {
+            alert("請輸入等級範圍在140-300之間");
+            return;
+        }
         $(".expshow-1 div").addClass("expshow-2");
         $(".expshow-1 div").css("width", level_per + "%");
         $(".expshow-1 div").text(level_per + "%");
