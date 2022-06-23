@@ -171,7 +171,7 @@ $('.drugdiv button').each((index, btn) => {
             inner[3].innerHTML += '<div> ' + level_per + ' %</div>';
 
 
-        } else if (level > 199) {
+        } else if (level > 200) {
 
             level_after = (parseInt(drugexp) + parseInt(exp));
 
