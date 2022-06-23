@@ -102,11 +102,10 @@ $('.drugdiv button').each((index, btn) => {
             count--;
         }
 
-        if (level <= 199 & level >= 141) {
+        if (level <= 199 & level > 141) {
             var ra = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
             sum = 0.0;
             sum2 = 0.0;
-            alert(ra);
             var item = 0;
             for (var i = 0; i < 10; i++) {
                 if (sum > parseInt(ra) || parseFloat(exp_data2[level - 141][i]) == 0) {
@@ -151,7 +150,7 @@ $('.drugdiv button').each((index, btn) => {
 
         }
 
-        if (druglevel > level & level > 199) {
+        if (druglevel > level & level >200) {
 
 
             level_per = (level_after / explist[level + 1] * 100).toFixed(2);
