@@ -52,8 +52,46 @@ Vue.createApp({
 
     },
 }).mount("#app")
+$(document).ready(function () {
+    $("#dialog-text .dialog-text-row").hover(function () {
+        $(this).find(".tr").css("border-color", "transparent transparent transparent #ff0000");
+        $("p").css("border-color", "transparent transparent transparent #ff0000");
+    }, function () {
+        $(".tr").css("border-color", "transparent transparent transparent #c7c7c7");
+    });
+});
+var text = '<div class="dialog-text-row"><div class="tr"></div><p> 介紹</p></div><div class="dialog-text-row"><div class="tr"></div><p>資料來源</p></div>';
 
+$("#dialog-text .dialog-text-row:nth-of-type(1)").click(function () {
+    $("#dialog-text2").css("display", "block");
+    $("#dialog-text").css("display", "none");
+    $("#dialog-text3").css("display", "none");
 
+    $("#dialog-btn1").css("display", "block");
+});
+$("#dialog-text .dialog-text-row:nth-of-type(2)").click(function () {
+    $("#dialog-text3").css("display", "block");
+    $("#dialog-text").css("display", "none");
+    $("#dialog-text2").css("display", "none");
+    $("#dialog-btn1").css("display", "block");
+});
+$("#dialog-btn1").click(function () {
+    $("#dialog-text3").css("display", "none");
+    $("#dialog-text2").css("display", "none");
+    $("#dialog-text").css("display", "block");
+    $("#dialog-btn1").css("display", "none");
+});
+$("#dialog-btn2").click(function () {
+    $("#dialog").css("display", "none");
+    $("#dialog-text3").css("display", "none");
+    $("#dialog-text2").css("display", "none");
+    $("#dialog-text").css("display", "block");
+});
+$("#menu").click(function () {
+    $("#dialog").css("display", "block")
+    $("#dialog-btn2").css("display", "block");
+
+});
 $("#exp").blur(function () {
     level = $("#level").val() * 1;
     exp = $("#exp").val();
@@ -76,6 +114,7 @@ $("#exp_per").blur(function () {
     $("#exp").val(ans);
     $("#exp").css("pointer-events", "none")
 });
+
 $('.drugdiv button').each((index, btn) => {
     $(btn).click(function () {
         druglevel = $(this).val();
@@ -102,10 +141,11 @@ $('.drugdiv button').each((index, btn) => {
             count--;
         }
 
-        if (level <= 199 & level > 141) {
+        if (level <= 199 & level >= 141) {
             var ra = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
             sum = 0.0;
             sum2 = 0.0;
+            alert(ra);
             var item = 0;
             for (var i = 0; i < 10; i++) {
                 if (sum > parseInt(ra) || parseFloat(exp_data2[level - 141][i]) == 0) {
@@ -150,7 +190,7 @@ $('.drugdiv button').each((index, btn) => {
 
         }
 
-        if (druglevel > level & level >200) {
+        if (druglevel > level & level > 199) {
 
 
             level_per = (level_after / explist[level + 1] * 100).toFixed(2);
@@ -171,7 +211,7 @@ $('.drugdiv button').each((index, btn) => {
             inner[3].innerHTML += '<div> ' + level_per + ' %</div>';
 
 
-        } else if (level > 200) {
+        } else if (level > 199) {
 
             level_after = (parseInt(drugexp) + parseInt(exp));
 
