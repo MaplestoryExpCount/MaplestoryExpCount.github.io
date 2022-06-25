@@ -172,7 +172,7 @@ footer {
     justify-items: center;
     width: 70vw;
     bottom: 0;
-    height: 550px;
+    height: auto;
     left: 15vw;
     border-top-left-radius: 30px;
 
@@ -191,7 +191,7 @@ footer {
 .dialog-text {
     position: absolute;
     bottom: 20%;
-    font-size: 20px;
+    font-size: 1em;
     left: 30%;
     color: #508179;
     z-index: 10;
@@ -360,5 +360,13 @@ footer {
 
     footer {
         height: 150px;
+    }
+
+    .navbar {
+        height: 160px;
+    }
+
+    .navbar p {
+        font-size: 18px;
     }
 }
