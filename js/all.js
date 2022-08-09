@@ -124,11 +124,8 @@ $('.drugdiv button').each((index, btn) => {
         exp = $("#exp").val();
         exp_per = $("#exp_per").val();
 
-        let level_now = explist[level];//所需鳩驗
-        if (druglevel == 200 & level > 200) {
-            alert("本秘藥提供給141等到200等使用，請選擇其他藥水" + druglevel);
-            return 0;
-        }
+        let level_now = explist[level];//所需經驗
+
         if (druglevel != 200 & level < 200) {
             alert("本秘藥不提供給200等以下使用，請選擇其他藥水" + druglevel);
             return 0;
