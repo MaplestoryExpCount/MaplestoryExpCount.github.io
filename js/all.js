@@ -289,6 +289,7 @@ function goback() {
     var ans = parseFloat($(".Results_table .result_contant:nth-child(2) .resultadd:nth-child(" + count + ") .col-3:nth-child(2)").text());
 
 
+    $("#exp_per").val(ans);
 
     var e_exp = document.getElementById("exp");
 
