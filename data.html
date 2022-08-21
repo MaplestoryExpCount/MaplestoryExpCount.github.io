@@ -27,8 +27,10 @@
     <div class="main">
         <section id="data">
             <section class="data1">
-                <h2>1-300等 升級經驗需求</h2>
 
+                <h2>1-300等 升級經驗需求</h2>
+                查詢等級<input type="text" id="level_search"> 所需經驗值<button onclick="search()" class="sumbit">送出</button>
+                <p id="ansexp"></p>
                 <li v-for="page in 300"></li>
 
             </section>
