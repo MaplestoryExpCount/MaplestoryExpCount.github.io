@@ -23,13 +23,19 @@ Vue.createApp({
     },
 }).mount("#data2")
 for (var i = 1; i < 301; i++) {
-    $(".data1 li:nth-of-type(" + i + ")").html(i + "等 升級經驗需求為&nbsp; " + explist[i]);
+    var explist_permil = explist[i].toLocaleString('en-US');
+
+
+    $(".data1 li:nth-of-type(" + i + ")").html(i + "等 升級經驗需求為&nbsp; " + explist_permil);
 }
-var tArray = new Array(); //先宣告一維
-for (var k = 0; k < 60; k++) { //一維長度為i,i為變數，可以根據實際情況改變
-    tArray[k] = new Array(); //宣告二維，每一個一維陣列裡面的一個元素都是一個陣列；
-    for (var j = 0; j < 10; j++) { //一維陣列裡面每個元素陣列可以包含的數量p，p也是一個變數；
-        tArray[k][j] = ""; //這裡將變數初始化，我這邊統一初始化為空，後面在用所需的值覆蓋裡面的值
+function search() {
+    $("#ansexp").text("結果：" + explist[$("#level_search").val()].toLocaleString('en-US'))
+}
+var tArray = new Array();
+for (var k = 0; k < 60; k++) {
+    tArray[k] = new Array();
+    for (var j = 0; j < 10; j++) {
+        tArray[k][j] = "";
     }
 }
 for (var j = 1; j < 60; j++) {

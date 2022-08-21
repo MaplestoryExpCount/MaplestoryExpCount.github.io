@@ -4,7 +4,6 @@ var data1 = [];
 var data2 = [];
 var data3 = [];
 var data4 = [];
-
 var exp_per;
 Vue.createApp({
     data: function () {
@@ -125,12 +124,12 @@ $('.drugdiv button').each((index, btn) => {
         exp_per = $("#exp_per").val();
 
         let level_now = explist[level];//所需經驗
-        if (level< 141) {
-          alert("所有秘藥不提供給141等以下使用");
+        if (level < 141) {
+            alert("所有秘藥不提供給141等以下使用");
             return 0;
         }
         if (druglevel != 200 & level < 200) {
-            alert("本秘藥不提供給200等以下使用，請選擇其他藥水" );
+            alert("本秘藥不提供給200等以下使用，請選擇其他藥水");
             return 0;
         }
 
@@ -191,10 +190,10 @@ $('.drugdiv button').each((index, btn) => {
 
         if (druglevel > level & level > 199) {
 
+
             level_after = parseInt(exp);
 
             level_per = (level_after / explist[level + 1] * 100).toFixed(2);
-
             var inner = document.querySelectorAll('.Results_table .result_contant .resultadd:nth-child(' + (count + 1) + ') .col-3');
 
 
@@ -242,6 +241,7 @@ $('.drugdiv button').each((index, btn) => {
 
             }
         }
+
         data1[count] = level;
         data2[count] = exp_per;
         data4[count] = level_per;
@@ -278,3 +278,28 @@ function myFunction() {
         demoP.innerHTML += "第" + (i + 1) + "次使用從等級&nbsp;" + data1[i] + "&nbsp;的&nbsp;" + data2[i] + "% &nbsp;到&nbsp;" + data3[i] + "&nbsp;的&nbsp;" + data4[i] + "%<br>";
     }
 }
+
+function goback() {
+    if (count == 0) {
+        alert("已無過去資料");
+        return 0;
+    }
+    var l = document.getElementById("level");
+    l.value = $(".Results_table .result_contant:nth-child(2) .resultadd:nth-child(" + count + ") .col-3:nth-child(1)").text();
+    var ans = parseFloat($(".Results_table .result_contant:nth-child(2) .resultadd:nth-child(" + count + ") .col-3:nth-child(2)").text());
+
+
+
+    var e_exp = document.getElementById("exp");
+
+    e_exp.value = (explist[l.value] * ans / 100).toFixed(0);
+
+    $(".expshow-1 div").addClass("expshow-2");
+    $(".expshow-1 div").css("width", ans + "%");
+    $(".expshow-1 div").text(ans + "%");
+
+    $(".Results_table .result_contant:nth-child(2) .resultadd:nth-child(" + count + ")").remove();
+    count--;
+
+}
+
