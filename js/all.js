@@ -191,6 +191,7 @@ $('.drugdiv button').each((index, btn) => {
 
         if (druglevel > level & level > 199) {
 
+            level_after = parseInt(exp);
 
             level_per = (level_after / explist[level + 1] * 100).toFixed(2);
 
