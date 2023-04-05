@@ -56,7 +56,7 @@
                                     {{item.name}}
                                     <br>
                                     <div class="drugimg">
-                                        <img src="img/exp.png">
+                                        <img v-bind:src="item.img" alt=""/>
                                     </div>
                                     <button :value="item.druglevel">使用</button>
 
