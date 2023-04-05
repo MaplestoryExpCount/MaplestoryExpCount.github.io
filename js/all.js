@@ -17,22 +17,22 @@ Vue.createApp({
 
             itemchoose: [
                 {
-                    name: "199等以下升級藥水",
+                    name: "199等以下升級藥水<br>(終極成長秘藥)",
                     druglevel: 200,
                     img:"./img/exp.png",
                 },
                 {
-                    name: "209等以下升級藥水",
+                    name: "209等以下升級藥水<br>(成長秘藥200~209)",
                     druglevel: 210,
                     img:"./img/exp.png",
                 },
                 {
-                    name: "219等以下升級藥水",
+                    name: "219等以下升級藥水<br>(成長秘藥200~219)",
                     druglevel: 220,
                     img:"./img/exp.png",
                 },
                 {
-                    name: "229等以下升級藥水",
+                    name: "229等以下升級藥水<br>(成長秘藥200~229)",
                     druglevel: 230,
                     img:"./img/exp.png",
                 },
@@ -42,7 +42,7 @@ Vue.createApp({
                     img:"./img/239drug.png",
                 },
                 {
-                    name: "249等以下升級藥水<br>(極限成長秘藥)1",
+                    name: "249等以下升級藥水<br>(極限成長秘藥)",
                     druglevel: 250,
                     img:"./img/249drug.png",
                 },
