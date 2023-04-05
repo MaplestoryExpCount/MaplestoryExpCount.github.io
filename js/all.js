@@ -37,12 +37,12 @@ Vue.createApp({
                     img:"./img/exp.png",
                 },
                 {
-                    name: "239等以下升級藥水\r\n(颱風成長秘藥)",
+                    name: "239等以下升級藥水<br>(颱風成長秘藥)",
                     druglevel: 240,
                     img:"./img/239drug.png",
                 },
                 {
-                    name: "249等以下升級藥水\r\n(極限成長秘藥)",
+                    name: "249等以下升級藥水<br>(極限成長秘藥)",
                     druglevel: 250,
                     img:"./img/249drug.png",
                 },
