@@ -17,27 +17,27 @@ Vue.createApp({
 
             itemchoose: [
                 {
-                    name: "200等以下升級藥水",
+                    name: "199等以下升級藥水",
                     druglevel: 200,
                 },
                 {
-                    name: "210等以下升級藥水",
+                    name: "209等以下升級藥水",
                     druglevel: 210,
                 },
                 {
-                    name: "220等以下升級藥水",
+                    name: "219等以下升級藥水",
                     druglevel: 220,
                 },
                 {
-                    name: "230等以下升級藥水",
+                    name: "229等以下升級藥水",
                     druglevel: 230,
                 },
                 {
-                    name: "240等以下升級藥水",
+                    name: "239等以下升級藥水(颱風成長秘藥)",
                     druglevel: 240,
                 },
                 {
-                    name: "250等以下升級藥水",
+                    name: "249等以下升級藥水(極限成長秘藥)",
                     druglevel: 250,
                 },
             ]
