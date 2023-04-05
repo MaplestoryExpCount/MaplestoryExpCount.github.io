@@ -42,7 +42,7 @@ Vue.createApp({
                     img:"./img/239drug.png",
                 },
                 {
-                    name: "249等以下升級藥水<br>(極限成長秘藥)",
+                    name: "249等以下升級藥水<br>(極限成長秘藥)1",
                     druglevel: 250,
                     img:"./img/249drug.png",
                 },
