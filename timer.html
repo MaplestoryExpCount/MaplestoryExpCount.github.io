@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>maplestory</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type="text/css">
+        * {
+            font-family: "微軟正黑體";
+        }
+
+        body,
+        html {
+            margin: 0;
+            height: 100%;
+            background: #ebe6e6;
+            cursor: url("../img/hover.gif"), auto;
+
+        }
+
+        .navbar {
+            width: 100%;
+            height: 80px;
+            background: #29b573;
+            color: white;
+            line-height: 60px;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar p {
+            font-size: 20px;
+            margin: 0px;
+            line-height: 60px;
+        }
+
+        .main {
+            margin: auto;
+        }
+
+        section {
+            margin: 20px;
+            color: #000;
+        }
+
+        footer {
+            width: 100%;
+            height: 70px;
+            background: #99a08f;
+            color: white;
+            text-align: center;
+            line-height: 35px;
+            margin-top: 5%;
+            font-size: 14px;
+        }
+
+
+        @media screen and (max-width:768px) {
+
+
+            footer {
+                height: 150px;
+            }
+
+            .navbar {
+                height: 160px;
+            }
+
+            .navbar p {
+                font-size: 18px;
+            }
+        }
+
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .tg td {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg th {
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg .tg-0lax {
+            text-align: center;
+            vertical-align: center;
+        }
+
+        .progessbar {
+            position: relative;
+            text-align: center;
+            border: 1px dashed blue;
+            height: 16px;
+            width: 250px;
+        }
+
+        .progessbar .text {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            line-height: 16px;
+            z-index: 10;
+        }
+
+
+        .progessbar .bar_2 {
+            position: absolute;
+            /* 為了便於同時展示多個進度條，right跟left直接寫在html style裡。 */
+            /* 實務上可以將style移除，改用下面的css來達成right或left的設定。 */
+            /*right: 0;*/
+            /*left: 0;*/
+            top: 0;
+            height: 16px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <nav class="navbar">
+        <p>V245版本&nbsp;深淵遠征隊3時間計算器 Beta 1.0.X</p>
+        <!-- <div class="onoffswitch ">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"
+                    checked>
+                <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                </label>
+            </div> -->
+    </nav>
+    <div class="main">
+        <section>
+            最高隊員數 <input type="number" id="numbermax">
+            可使用分鐘數 <input type="number" id="timemax">
+
+            <div class="row">
+
+
+                <div class="tablecontain col-6">
+                    <table class="tg">
+                        <thead>
+                            <tr>
+                                <th class="tg-0lax">階級</th>
+                                <th class="tg-0lax">角色名稱</th>
+                                <th class="tg-0lax">職業</th>
+                                <th class="tg-0lax">目前累積分數</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td class="tg-0lax" rowspan="5">新手</td>
+                                <td class="tg-0lax" id="name1">裘斯</td>
+                                <td class="tg-0lax">劍士</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name2">娜美</td>
+                                <td class="tg-0lax">法師</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+
+                                <td class="tg-0lax" id="name3">比爾</td>
+                                <td class="tg-0lax">弓箭手</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name4">尼爾</td>
+                                <td class="tg-0lax">盜賊</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name5">奧莉薇</td>
+                                <td class="tg-0lax">海盜</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" rowspan="5">普通</td>
+                                <td class="tg-0lax" id="name6">萊爾普</td>
+                                <td class="tg-0lax">劍士</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name7">艾爾比絲</td>
+                                <td class="tg-0lax">法師</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name8">普雷伊</td>
+                                <td class="tg-0lax">弓箭手</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name9">米絲媞</td>
+                                <td class="tg-0lax">盜賊</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name10">修莉</td>
+                                <td class="tg-0lax">海盜</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax name" rowspan="5">佳</td>
+                                <td class="tg-0lax" id="name11">阿諾德</td>
+                                <td class="tg-0lax">劍士</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name12">舒布拉</td>
+                                <td class="tg-0lax">法師</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name13">洛尼</td>
+                                <td class="tg-0lax">弓箭手</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name14">幸運</td>
+                                <td class="tg-0lax">盜賊</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name15">梅利爾</td>
+                                <td class="tg-0lax">海盜</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax name" rowspan="5">最佳</td>
+                                <td class="tg-0lax" id="name16">瑪諾斯</td>
+                                <td class="tg-0lax">劍士</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name17">布里艾</td>
+                                <td class="tg-0lax">法師</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name18">賽爾文</td>
+                                <td class="tg-0lax">弓箭手</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name19">潔克琳</td>
+                                <td class="tg-0lax">盜賊</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name20">Boom</td>
+                                <td class="tg-0lax">海盜</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax name" rowspan="5">特殊</td>
+                                <td class="tg-0lax" id="name21">斯托尼</td>
+                                <td class="tg-0lax ">劍士</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name22">利美</td>
+                                <td class="tg-0lax">法師</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name23">松松</td>
+                                <td class="tg-0lax">弓箭手</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name24">汀汀</td>
+                                <td class="tg-0lax">盜賊</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax" id="name25">雅各布</td>
+                                <td class="tg-0lax">海盜</td>
+                                <td class="tg-0lax time" contenteditable='true'></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- <button onclick="import_btn()"> 匯入</button> -->
+
+                </div>
+
+                <div class="exp col-6">
+                    <table class="tg">
+                        <thead>
+                            <tr>
+                                <th class="tg-0lax">隊員等級</th>
+                                <th class="tg-0lax">累積分鐘數</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tg-0lax">1</td>
+                                <td class="tg-0lax">0</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">2</td>
+                                <td class="tg-0lax">30</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">3</td>
+                                <td class="tg-0lax">60</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">4</td>
+                                <td class="tg-0lax">120</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">5</td>
+                                <td class="tg-0lax">200</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">6</td>
+                                <td class="tg-0lax">300</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">7</td>
+                                <td class="tg-0lax">400</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">8</td>
+                                <td class="tg-0lax">500</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">9</td>
+                                <td class="tg-0lax">650</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">10</td>
+                                <td class="tg-0lax">800</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <button onclick="sum_btn()">最少時間</button><br>
+                    <textarea id="log" rows="10" cols="40" readonly></textarea><br>
+                    預估累積等級 <input type="text" id="level"><br>
+                    <br>
+                    <button onclick="time_sum()" id="startButton">開始</button>
+
+
+
+                    <div id="countdown"></div>
+
+                    <script>
+
+                    </script>
+
+                </div>
+            </div>
+
+
+    </div>
+    </section>
+
+
+
+    <script>
+        var array = [];
+        var array2 = [];
+        var m_array = [0, 30, 60, 120, 200, 300, 400, 500, 650, 800];
+        var times = 0;
+        var maxnumber = document.getElementById("numbermax").value;
+
+        function import_btn() {
+            var k = 0;
+            for (let i = 1; i <= 25; i++) {
+                if ($("#name" + i).parent("tr").find(".time").text() >= 0 && parseInt($("#name" + i).parent("tr").find(".time").text().toString()) != NaN) {
+
+                    array.push([$("#name" + i).text(), $("#name" + i).parent("tr").find(".time").text()])
+
+                }
+
+            }
+
+
+        }
+        function sum_btn() {
+            array2 = [];
+            maxnumber = document.getElementById("numbermax").value;
+
+            var tx = document.getElementById("timemax").value
+            document.getElementById("log").value = ""
+            var a5 = [];
+            for (let k = 1; k <= 25; k++) {
+                if ($("#name" + k).parent("tr").find(".time").text() >= 0 && isNaN(parseInt($("#name" + k).parent("tr").find(".time").text())) == false) {
+                    for (let i = 0; i < 10; i++) {
+                        if ($("#name" + k).parent("tr").find(".time").text() < m_array[i] && tx >= m_array[i] - $("#name" + k).parent("tr").find(".time").text() && (m_array[i] - $("#name" + k).parent("tr").find(".time").text()) > 0) {
+                            array2.push([$("#name" + k).text(), m_array[i] - $("#name" + k).parent("tr").find(".time").text()])
+                            break;
+                        } else if (tx < m_array[i] - $("#name" + k).parent("tr").find(".time").text()) {
+                            array2.push([$("#name" + k).text(), tx])
+                            break;
+                        }
+                    }
+                }
+                array2.sort(compareSecondColumn);
+
+                function compareSecondColumn(a, b) {
+                    if (a[1] === b[1]) {
+                        return 0;
+                    }
+                    else {
+                        return (a[1] < b[1]) ? -1 : 1;
+                    }
+                }
+            }
+            a5 = array2.slice(0, maxnumber).join().split(",")
+            console.log("a5 1 ：  " + a5[1]);
+            console.log("tx:  " + tx);
+            for (let g = 0; g < maxnumber; g++) {
+                if (a5[1] === undefined) {
+                    times = tx;
+                    document.getElementById("log").value += a5[0] + a5[1];
+                } else {
+                    times = a5[1];
+                    document.getElementById("log").value += array2[g];
+                }
+
+            }
+            console.log("tims:   " + times);
+
+        }
+        function time_sum() {
+            var level = 0;
+            let defaultStr = array2.join()
+            let array4 = array2.slice(0, maxnumber).join().split(",");
+            for (let i = 0; i < 25; i++) {
+                if ($("#name" + i).text() == array4[0]) {
+                    $("#name" + i).parent("tr").find(".time").text((parseInt($("#name" + i).parent("tr").find(".time").text().toString()) + parseInt(times))).toString();
+                }
+                if ($("#name" + i).text() == array4[2]) {
+                    $("#name" + i).parent("tr").find(".time").text((parseInt($("#name" + i).parent("tr").find(".time").text().toString()) + parseInt(times))).toString();
+                }
+                if ($("#name" + i).text() == array4[4]) {
+                    $("#name" + i).parent("tr").find(".time").text((parseInt($("#name" + i).parent("tr").find(".time").text().toString()) + parseInt(times))).toString();
+                }
+                if ($("#name" + i).text() == array4[6]) {
+                    $("#name" + i).parent("tr").find(".time").text((parseInt($("#name" + i).parent("tr").find(".time").text().toString()) + parseInt(times))).toString();
+                }
+                if ($("#name" + i).text() == array4[8]) {
+                    $("#name" + i).parent("tr").find(".time").text((parseInt($("#name" + i).parent("tr").find(".time").text().toString()) + parseInt(times))).toString();
+                }
+            }
+            document.getElementById("timemax").value -= parseInt(times)
+            for (let i = 1; i <= 25; i++) {
+                var ts = parseInt($("#name" + i).parent("tr").find(".time").text());
+
+                switch (true) {
+                    case (ts == 0):
+                        level += 1;
+                        break;
+                    case (ts >= 30 && ts < 60):
+                        level += 2;
+                        break;
+                    case (ts >= 60 && ts < 120):
+                        level += 3;
+
+                        break;
+                    case (ts >= 120 && ts < 200):
+                        level += 4;
+
+                        break;
+                    case (ts >= 200 && ts < 300):
+                        level += 5;
+                        break;
+                    case (ts >= 300 && ts < 400):
+                        level += 6;
+                        break;
+                    case (ts >= 400 && ts < 500):
+                        level += 7;
+                        break;
+                    case (ts >= 500 && ts < 650):
+                        level += 8;
+                        break;
+                    case (ts >= 650 && ts < 800):
+                        level += 9;
+                        break;
+                    case (ts >= 800):
+                        level += 10;
+                    default:
+                        break;
+
+                }
+            }
+
+            document.getElementById("level").value = level;
+
+        }
+    </script>
+    <script>
+
+        const countdownElement = document.getElementById('countdown');
+        const startButton = document.getElementById('startButton');
+        let countdown;
+        let countdownTime = 0;
+        startButton.addEventListener('click', startCountdown);
+
+
+        function startCountdown() {
+            clearInterval(countdown);
+
+            // 取得使用者輸入的倒數時間（以秒為單位）
+            const userInput = times * 60;
+            window.open(' https://naozhong.tw/jishiqi/#countdown=00:00:01&enabled=0&seconds=' + (times * 60).toString() + '&title=%E8%A8%88%E6%99%82%E5%99%A8&sound=xylophone&loop=1 ', '計時器', config = 'height=300,width=300');
+
+
+            if (Number.isNaN(userInput) || userInput <= 0) {
+                countdownElement.textContent = "請輸入有效的倒數時間！";
+                return;
+            }
+
+            countdownTime = userInput;
+            countdownElement.textContent = formatTime(countdownTime);
+
+            countdown = setInterval(updateCountdown, 1000);
+        }
+
+        function updateCountdown() {
+            countdownTime--;
+
+            if (countdownTime <= 0) {
+
+                clearInterval(countdown);
+                countdownElement.textContent = "倒數結束！";
+                return;
+            }
+
+            countdownElement.textContent = formatTime(countdownTime);
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+
+            return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    實際效果依使用為準，此網頁僅提供模擬<br>
+
+                </div>
+            </div>
+    </footer>
+</body>
+
+</html>
