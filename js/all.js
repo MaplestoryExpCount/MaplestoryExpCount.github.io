@@ -1,3 +1,7 @@
+webtitle = 'V253&nbsp; Savior&nbsp; 版本&nbsp;經驗成長秘藥計算機 Beta 1.0.7'
+
+$('.webtitle').html(webtitle);
+document.title = $('.webtitle').text();
 level_after = 0;
 count = 0;
 allcount = 0;
