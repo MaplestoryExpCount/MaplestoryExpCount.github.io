@@ -8,12 +8,12 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>V253版本&nbsp;經驗成長秘藥計算機 Beta 1.0.6</title>
+    <title>V253&nbsp; Savior&nbsp; 版本&nbsp;經驗成長秘藥計算機 Beta 1.0.6</title>
 </head>
 
 <body>
     <nav class="navbar">
-        <p>V253版本&nbsp;經驗成長秘藥計算機 Beta 1.0.6</p>
+        <p>V253&nbsp; Savior&nbsp; 版本&nbsp;經驗成長秘藥計算機 Beta 1.0.6</p>
         <!-- 
         <div class="menu" id="menu">
             <img src="img/menu.png">
@@ -54,11 +54,28 @@
                             <div v-for="item in itemchoose" class="col-md-4 col-6">
                                 <div class="drugdiv">
                                     <p v-html=item.name></p>
-                                    
+
                                     <div class="drugimg">
-                                        <img v-bind:src="item.img" alt=""/>
+                                        <img v-bind:src="item.img" alt="" />
                                     </div>
+                                    <form action="">
+                                        <select :name="item.druglevelid" class="drugselct">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </form>
                                     <button :value="item.druglevel">使用</button>
+
+                                    <p>累積次數 <span :id="item.druglevelid">0</span></p>
+
 
 
                                 </div>
