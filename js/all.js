@@ -100,7 +100,7 @@ $("#menu").click(function () {
 $("#exp").blur(function () {
     level = $("#level").val() * 1;
     exp = $("#exp").val();
-    var ans = (exp / explist[level] * 100).toFixed(2);
+    var ans = (exp / explist[level] * 100).toFixed(3);
     if (ans > 100) {
         alert("輸入經驗值大於等級需求")
         return;
@@ -174,7 +174,7 @@ $('.drugdiv button').each((index, btn) => {
 
             level += item;
 
-            level_per = (level_after / explist[level] * 100).toFixed(2);
+            level_per = (level_after / explist[level] * 100).toFixed(3);
 
             var inner = document.querySelectorAll('.Results_table .result_contant .resultadd:nth-child(' + (count + 1) + ') .col-3');
 
@@ -199,7 +199,7 @@ $('.drugdiv button').each((index, btn) => {
 
             level_after = parseInt(exp);
 
-            level_per = (level_after / explist[level + 1] * 100).toFixed(2);
+            level_per = (level_after / explist[level + 1] * 100).toFixed(3);
             var inner = document.querySelectorAll('.Results_table .result_contant .resultadd:nth-child(' + (count + 1) + ') .col-3');
 
 
@@ -220,7 +220,7 @@ $('.drugdiv button').each((index, btn) => {
 
             level_after = (parseInt(drugexp) + parseInt(exp));
 
-            level_per = (level_after / level_now * 100).toFixed(2);
+            level_per = (level_after / level_now * 100).toFixed(3);
             var inner = document.querySelectorAll('.Results_table .result_contant .resultadd:nth-child(' + (count + 1) + ') .col-3');
             inner[0].innerHTML += '<div>' + level + '</div>';
             inner[1].innerHTML += '<div> ' + exp_per + ' %</div>';
@@ -236,7 +236,7 @@ $('.drugdiv button').each((index, btn) => {
             }
             else if (level_per > 100) {
                 level_after = (parseInt(level_after) - parseInt(explist[level]));
-                level_per = (level_after / explist[level + 1] * 100).toFixed(2);
+                level_per = (level_after / explist[level + 1] * 100).toFixed(3);
                 data3[count] = level + 1;
 
                 var e_per = document.getElementById("exp_per");
