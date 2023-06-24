@@ -30,22 +30,23 @@
                     <div id="app">
                         <div class="row expcountsection">
                             <div class="col-md-4 ">
-                                輸入你的等級：
-                                <input type="number" v-model="expinput.level" id="level" min="140" max="300">
+                                <label for="level" class="form-label">  輸入你的等級：</label>                              
+                                <input type="number"  class="form-control" v-model="expinput.level" id="level" min="141" max="300">
                             </div>
                             <div class="col-md-4">
-                                輸入你的經驗值：
-                                <input type="number" v-model="expinput.exp" id="exp">
+                                <label for="exp" class="form-label">  輸入你的經驗值：</label>                              
+                                <input type="number"  class="form-control" v-model="expinput.exp" id="exp">
                             </div>
                             <div class="col-md-4">
-                                輸入你的經驗值趴數：
-                                <input type="number" v-model="expinput.exp_per" min="0" max="100" id="exp_per">
+                                <label for="exp_per" class="form-label">  輸入你的經驗值趴數：</label>                              
+                        
+                                <input type="number"  class="form-control" v-model="expinput.exp_per" min="0" max="100" id="exp_per">
                             </div>
                         </div>
                         <br>
                         <div class="div_btn_r_b">
-                            <button onclick="location.reload()" class="btn_r_b col-6">重置</button>
-                            <button onclick="goback()" class="btn_r_b col-6">返回上一筆</button>
+                            <button type="reset" id="reset" class="btn_r_b col-6">重置</button>
+                            <button type="button" onclick="goback()" class="btn_r_b col-6">返回上一筆</button>
                         </div>
 
 
