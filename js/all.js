@@ -109,6 +109,14 @@ $("#menu").click(function () {
     $("#dialog-btn2").css("display", "block");
 
 });
+$("#level').blur(function(){
+  let level =$("#level").val()*1;
+    if(level <141 || level >300){
+        alert("請輸入等級範圍在141-300等之間");
+        $("#level").val(200);
+        $("#level").focus();
+    }
+});
 $("#exp").blur(function () {
     level = $("#level").val() * 1;
     exp = $("#exp").val();
@@ -130,6 +138,16 @@ $("#exp_per").blur(function () {
 
     $("#exp").val(ans);
     $("#exp").css("pointer-events", "none")
+});
+$("#reset").click(function(){
+    $("#level").val(200);
+    $("#exp").val(0);
+    $("#exp_per").val(0);
+    $(".result_contant").html('');
+    $(".expshow-1).html('<div class="col-md-12"></div>');
+    count=0;
+    $(".drugselect").val('1');
+    $("#drug200,#drug210,#drug220,#drug230,#drug240,#drug250").text('0');
 });
 var drug200 = 0;
 var drug210 = 0;
