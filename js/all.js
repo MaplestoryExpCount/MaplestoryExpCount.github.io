@@ -19,7 +19,7 @@ Vue.createApp({
     data: function () {
         return {
             expinput: {
-                level: 215,
+                level: 200,
                 exp: 0,
                 exp_per: 0,
             },
