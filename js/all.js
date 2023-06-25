@@ -11,11 +11,15 @@ var data3 = [];
 var data4 = [];
 var exp_per;
 var exp_per_after = 0;
+var backlevel = 0;
+var lastexp = [];
+lastexp[0] = 0;
+back = false;
 Vue.createApp({
     data: function () {
         return {
             expinput: {
-                level: 200,
+                level: 215,
                 exp: 0,
                 exp_per: 0,
             },
@@ -114,6 +118,8 @@ $("#level").blur(function () {
     if (level < 141 || level > 300) {
         alert("請輸入等級範圍在141-300等之間");
         $("#level").val(200);
+        $("#exp").val(0);
+        $("#exp_per").val(0);
         $("#level").focus();
     }
 });
@@ -121,6 +127,8 @@ $("#exp").blur(function () {
     level = $("#level").val() * 1;
     exp = $("#exp").val();
     var ans = Math.abs((exp / explist[level] * 100).toFixed(3));
+    lastexp[0] = exp;
+
     if (ans > 100) {
         alert("輸入經驗值大於等級需求")
         return;
@@ -131,6 +139,8 @@ $("#exp_per").blur(function () {
     level = $("#level").val() * 1;
     exp_per = $("#exp_per").val();
     var ans = Math.abs((explist[level] * exp_per / 100).toFixed(0));
+    lastexp[0] = ans;
+    exp_per_after = exp_per;
     if (exp_per < 0 || exp_per > 100) {
         alert("請輸入0-100");
         return;
@@ -156,15 +166,25 @@ var drug230 = 0;
 var drug240 = 0;
 var drug250 = 0;
 var lastdrug = [];
+
 var lastdrugnum = [];
 $('.drugdiv button').each((index, btn) => {
     $(btn).click(function () {
+
         druglevel = $(this).val();
         drugexp = explist[$(this).val() - 1];
         level = $("#level").val() * 1;
         exp = $("#exp").val();
         exp_per = $("#exp_per").val();
         let drug_num = 0;
+        if (level < 141) {
+            alert("所有秘藥不提供給141等以下使用");
+            return 0;
+        }
+        if (druglevel != 200 && level < 200) {
+            alert("本秘藥不提供給200等以下使用，請選擇其他藥水");
+            return false;
+        }
         switch (druglevel) {
             case "200":
                 drug200 = document.getElementById("drug200").innerHTML;
@@ -204,14 +224,7 @@ $('.drugdiv button').each((index, btn) => {
                 break;
         }
         let level_now = explist[level];//所需經驗
-        if (level < 141) {
-            alert("所有秘藥不提供給141等以下使用");
-            return 0;
-        }
-        if (druglevel != 200 & level < 200) {
-            alert("本秘藥不提供給200等以下使用，請選擇其他藥水");
-            return 0;
-        }
+
 
 
         Recursion();
@@ -224,7 +237,8 @@ $('.drugdiv button').each((index, btn) => {
                     $(".Results_table .result_contant:nth-child(2) .resultadd:nth-child(1)").remove();
                     count--;
                 }
-                if (level <= 199 & level >= 141) {
+                if (level <= 199 && level >= 141) {
+
                     var ra = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
                     sum = 0.0;
                     sum2 = 0.0;
@@ -245,20 +259,16 @@ $('.drugdiv button').each((index, btn) => {
                         }
 
                     }
-                    // if (item = 0) {
-                    //     item = 2;
-                    // }
                     level_after = parseInt(exp);
-
                     level += item;
 
-                    level_per = (level_after / explist[level] * 100).toFixed(3);
+                    level_per = Math.abs((level_after / explist[level + 1] * 100).toFixed(3));
 
                     var inner = document.querySelectorAll('.Results_table .result_contant .resultadd:nth-child(' + (count + 1) + ') .col-3');
 
 
                     var t = document.getElementById("level");
-                    t.value = level + item;
+                    t.value = level;
 
                     var e_per = document.getElementById("exp_per");
                     e_per.value = level_per;
@@ -271,12 +281,9 @@ $('.drugdiv button').each((index, btn) => {
                     inner[3].innerHTML += '<div> ' + level_per + ' %</div>';
 
 
-                    level = l.value;
-                    exp = level_after;
 
                 }
                 else if (druglevel > level && level > 199) {
-
                     level_after = parseInt(exp);
 
                     level_per = Math.abs((level_after / explist[level + 1] * 100).toFixed(3));
@@ -344,7 +351,8 @@ $('.drugdiv button').each((index, btn) => {
                 var l = document.getElementById("level");
                 l.value = data3[count];
                 count++;
-                lastdrug[count - 1] = "drug" + druglevel;
+                lastdrug[count - 1] = druglevel;
+                lastexp[count] = level_after;
                 lastdrugnum[count] = $(this).parent(".drugdiv").find("select").val();
                 $(".expshow-1 div").addClass("expshow-2");
                 $(".expshow-1 div").css("width", level_per + "%");
@@ -388,49 +396,68 @@ function myFunction() {
 
 function goback() {
     if (count == 0) {
+
         alert("已無過去資料");
         return 0;
     }
+    var l_a = $("#level").val()
     var l = document.getElementById("level");
     l.value = $(".Results_table .result_contant:nth-child(2) .resultadd:nth-child(" + count + ") .col-3:nth-child(1)").text();
-    var ans = Math.abs(parseFloat($(".Results_table .result_contant:nth-child(2) .resultadd:nth-child(" + count + ") .col-3:nth-child(2)").text()));
 
-    switch (lastdrug[count]) {
-        case "drug200":
+
+    var ans = Math.abs(parseFloat($(".Results_table .result_contant:nth-child(2) .resultadd:nth-child(" + count + ") .col-3:nth-child(2)").text()));
+    switch (lastdrug[count - 1]) {
+        case "200":
             drug200 = document.getElementById("drug200").innerHTML;
-            drug200 = (drug200 - (lastdrugnum[count] * 1));
+            drug200--;
             document.getElementById("drug200").innerHTML = drug200;
+            backlevel = 200;
             break;
-        case "drug210":
+        case "210":
             drug210 = document.getElementById("drug210").innerHTML;
             drug210--;
+
             document.getElementById("drug210").innerHTML = drug210;
+            backlevel = 210;
             break;
-        case "drug220":
+        case "220":
             drug220 = document.getElementById("drug220").innerHTML;
             drug220--;
             document.getElementById("drug220").innerHTML = drug220;
+            backlevel = 220;
             break;
-        case "drug230":
+        case "230":
             drug230 = document.getElementById("drug230").innerHTML;
             drug230--;
             document.getElementById("drug230").innerHTML = drug230;
+            backlevel = 230;
             break;
-        case "drug240":
+        case "240":
             drug240 = document.getElementById("drug240").innerHTML;
             drug240--;
             document.getElementById("drug240").innerHTML = drug240;
+            backlevel = 240;
             break;
-        case "drug250":
+        case "250":
             drug250 = document.getElementById("drug250").innerHTML;
             drug250--;
             document.getElementById("drug250").innerHTML = drug250;
+            backlevel = 250;
             break;
-    }    $("#exp_per").val(ans);
+    }
+    $("#exp_per").val(ans);
 
     var e_exp = document.getElementById("exp");
 
-    e_exp.value = level_after - explist[lastdrug - 1];
+    if (back == false) {
+        lastexp.pop();
+        e_exp.value = parseInt(lastexp.pop());
+        back = true;
+    } else {
+        e_exp.value = parseInt(lastexp.pop());
+
+    }
+
 
     $(".expshow-1 div").addClass("expshow-2");
     $(".expshow-1 div").css("width", ans + "%");
