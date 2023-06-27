@@ -1,4 +1,4 @@
-webtitle = '新楓之谷&nbsp;V253&nbsp; Savior&nbsp; 版本&nbsp;經驗成長秘藥計算機 Beta 1.0.7'
+webtitle = '新楓之谷&nbsp;V253&nbsp; Savior&nbsp; 版本&nbsp;經驗成長秘藥計算機 Beta 1.0.8'
 
 $('.webtitle').html(webtitle);
 document.title = $('.webtitle').text();
@@ -115,12 +115,13 @@ $("#menu").click(function () {
 });
 $("#level").blur(function () {
     let level = $("#level").val() * 1;
-    if (level < 141 || level > 300) {
-        alert("請輸入等級範圍在141-300等之間");
+    if (level < 141 || level >= 300) {
         $("#level").val(200);
         $("#exp").val(0);
         $("#exp_per").val(0);
         $("#level").focus();
+        alert("請輸入等級範圍在141-300等之間");
+
     }
 });
 $("#exp").blur(function () {
@@ -128,18 +129,44 @@ $("#exp").blur(function () {
     exp = $("#exp").val();
     var ans = Math.abs((exp / explist[level] * 100).toFixed(3));
     lastexp[0] = exp;
+    var original_per = Math.abs((exp / explist[level] * 100).toFixed(3));
 
     if (ans > 100) {
         alert("輸入經驗值大於等級需求")
         return;
     }
     $("#exp_per").val(ans);
+    $("#exp_per").css("pointer-events", "none");
+    $(".expshow-1").html('<div class="col-md-12"></div>');
+
+    $(".expshow-1 div").addClass("expshow-2");
+
+    $(".expshow-1 div").css("width", original_per + "%");
+    $(".expshow-1 div").text(original_per + "%");
+    if (level < 141 || level >= 300) {
+        $("#level").val(200);
+        $("#exp").val(0);
+        $("#exp_per").val(0);
+        $("#level").focus();
+        alert("請輸入等級範圍在141-300等之間");
+
+    }
+
+});
+$("#exp").focus(function () {
+    $("#exp_per").css("pointer-events", "none");
+
+});
+$("#exp_per").focus(function () {
+    $("#exp").css("pointer-events", "none");
+
 });
 $("#exp_per").blur(function () {
     level = $("#level").val() * 1;
     exp_per = $("#exp_per").val();
     var ans = Math.abs((explist[level] * exp_per / 100).toFixed(0));
     lastexp[0] = ans;
+
     exp_per_after = exp_per;
     if (exp_per < 0 || exp_per > 100) {
         alert("請輸入0-100");
@@ -147,7 +174,24 @@ $("#exp_per").blur(function () {
     }
 
     $("#exp").val(ans);
-    $("#exp").css("pointer-events", "none")
+    $("#exp").css("pointer-events", "none");
+    $(".expshow-1").html('<div class="col-md-12"></div>');
+
+
+
+    $(".expshow-1 div").addClass("expshow-2");
+
+    $(".expshow-1 div").css("width", exp_per + "%");
+    $(".expshow-1 div").text(exp_per + "%");
+    if (level < 141 || level >= 300) {
+        $("#level").val(200);
+        $("#exp").val(0);
+        $("#exp_per").val(0);
+        $("#level").focus();
+        alert("請輸入等級範圍在141-300等之間");
+
+    }
+
 });
 $("#reset").click(function () {
     $("#level").val(200);
@@ -158,6 +202,10 @@ $("#reset").click(function () {
     count = 0;
     $(".drugselect").val('1');
     $("#drug200,#drug210,#drug220,#drug230,#drug240,#drug250").text('0');
+    $("#exp").css("pointer-events", "auto")
+    $("#exp_per").css("pointer-events", "auto")
+
+
 });
 var drug200 = 0;
 var drug210 = 0;
@@ -238,7 +286,6 @@ $('.drugdiv button').each((index, btn) => {
                     count--;
                 }
                 if (level <= 199 && level >= 141) {
-
                     var ra = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
                     sum = 0.0;
                     sum2 = 0.0;
@@ -267,23 +314,27 @@ $('.drugdiv button').each((index, btn) => {
                     var inner = document.querySelectorAll('.Results_table .result_contant .resultadd:nth-child(' + (count + 1) + ') .col-3');
 
 
-                    var t = document.getElementById("level");
-                    t.value = level;
+
 
                     var e_per = document.getElementById("exp_per");
                     e_per.value = level_per;
 
 
-                    data3[count] = level;
                     inner[0].innerHTML += '<div>' + (parseInt(level) - parseInt(item)) + '</div>';
                     inner[1].innerHTML += '<div> ' + exp_per + ' %</div>';
                     inner[2].innerHTML += '<div>' + (parseInt(level)) + '</div>';
                     inner[3].innerHTML += '<div> ' + level_per + ' %</div>';
 
+                    var e_exp = document.getElementById("exp");
+                    e_exp.value = level_after;
+
+                    data3[count] = level;
+                    $("#level").val(data3[count]);
 
 
                 }
                 else if (druglevel > level && level > 199) {
+
                     level_after = parseInt(exp);
 
                     level_per = Math.abs((level_after / explist[level + 1] * 100).toFixed(3));
@@ -306,12 +357,14 @@ $('.drugdiv button').each((index, btn) => {
                 } else if (level > 199) {
 
                     level_after = (parseInt(drugexp) + parseInt(exp));
-                    level_per = Math.abs((level_after / level_now * 100).toFixed(3));
+                    level_per = Math.abs((level_after / explist[level] * 100).toFixed(3));
+
                     var inner = document.querySelectorAll('.Results_table .result_contant .resultadd:nth-child(' + (count + 1) + ') .col-3');
                     inner[0].innerHTML += '<div>' + level + '</div>';
 
                     inner[1].innerHTML += '<div> ' + exp_per_after + ' %</div>';
                     if (level_per < 100) {
+
                         inner[2].innerHTML += '<div>' + level + '</div>';
                         inner[3].innerHTML += '<div > ' + (level_after / explist[level] * 100).toFixed(3) + ' %</div>';
                         data3[count] = level;
@@ -324,6 +377,7 @@ $('.drugdiv button').each((index, btn) => {
 
                     }
                     else if (level_per > 100) {
+
                         level_after = (parseInt(level_after) - parseInt(explist[level]));
                         level_per = Math.abs((level_after / explist[level + 1] * 100).toFixed(3));
                         data3[count] = parseInt(level) + 1;
@@ -339,7 +393,6 @@ $('.drugdiv button').each((index, btn) => {
 
 
 
-
                 }
                 data1[count] = level;
                 data2[count] = exp_per;
@@ -350,6 +403,7 @@ $('.drugdiv button').each((index, btn) => {
 
                 var l = document.getElementById("level");
                 l.value = data3[count];
+
                 count++;
                 lastdrug[count - 1] = druglevel;
                 lastexp[count] = level_after;
@@ -370,7 +424,18 @@ $('.drugdiv button').each((index, btn) => {
                 return;
             }
             else if ($("#level").val() < 140 || $("#level").val() > 300) {
-                alert("請輸入等級範圍在140-300之間");
+                $("#level").val(200);
+                $("#exp").val(0);
+                $("#exp_per").val(0);
+                $(".result_contant").html('');
+                $(".expshow-1").html('<div class="col-md-12"></div>');
+                count = 0;
+                $(".drugselect").val('1');
+                $("#drug200,#drug210,#drug220,#drug230,#drug240,#drug250").text('0');
+                $("#exp").css("pointer-events", "auto")
+                $("#exp_per").css("pointer-events", "auto")
+                alert("請輸入等級範圍在141-300之間");
+
                 return;
             }
 
