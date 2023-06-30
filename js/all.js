@@ -136,7 +136,7 @@ $("#exp").blur(function () {
         return;
     }
     $("#exp_per").val(ans);
-    $("#exp_per").css("pointer-events", "none");
+    // $("#exp_per").css("pointer-events", "none");
     $(".expshow-1").html('<div class="col-md-12"></div>');
 
     $(".expshow-1 div").addClass("expshow-2");
@@ -153,14 +153,14 @@ $("#exp").blur(function () {
     }
 
 });
-$("#exp").focus(function () {
-    $("#exp_per").css("pointer-events", "none");
+// $("#exp").focus(function () {
+//     $("#exp_per").css("pointer-events", "none");
 
-});
-$("#exp_per").focus(function () {
-    $("#exp").css("pointer-events", "none");
+// });
+// $("#exp_per").focus(function () {
+//     $("#exp").css("pointer-events", "none");
 
-});
+// });
 $("#exp_per").blur(function () {
     level = $("#level").val() * 1;
     exp_per = $("#exp_per").val();
@@ -174,7 +174,7 @@ $("#exp_per").blur(function () {
     }
 
     $("#exp").val(ans);
-    $("#exp").css("pointer-events", "none");
+    // $("#exp").css("pointer-events", "none");
     $(".expshow-1").html('<div class="col-md-12"></div>');
 
 
@@ -202,8 +202,8 @@ $("#reset").click(function () {
     count = 0;
     $(".drugselect").val('1');
     $("#drug200,#drug210,#drug220,#drug230,#drug240,#drug250").text('0');
-    $("#exp").css("pointer-events", "auto")
-    $("#exp_per").css("pointer-events", "auto")
+    // $("#exp").css("pointer-events", "auto")
+    // $("#exp_per").css("pointer-events", "auto")
 
 
 });
@@ -432,8 +432,8 @@ $('.drugdiv button').each((index, btn) => {
                 count = 0;
                 $(".drugselect").val('1');
                 $("#drug200,#drug210,#drug220,#drug230,#drug240,#drug250").text('0');
-                $("#exp").css("pointer-events", "auto")
-                $("#exp_per").css("pointer-events", "auto")
+                // $("#exp").css("pointer-events", "auto")
+                // $("#exp_per").css("pointer-events", "auto")
                 alert("請輸入等級範圍在141-300之間");
 
                 return;
