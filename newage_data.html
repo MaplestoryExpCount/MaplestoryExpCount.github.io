@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/data.css">
+
+    <title>新楓之谷 6轉臨時用 經驗成長秘藥計算機</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <p class="webtitle_">新楓之谷 6轉臨時用 經驗成長秘藥計算機</p>
+        <!-- <div class="onoffswitch ">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"
+                checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div> -->
+    </nav>
+    <div class="main">
+        <section id="data">
+            <section class="data1">
+
+                <h2>1-300等 升級經驗需求</h2>
+                查詢等級<input type="text" id="level_search"> 所需經驗值<button onclick="search()" class="sumbit">送出</button>
+                <p id="ansexp"></p>
+                <li v-for="page in 300"></li>
+
+            </section>
+            <section class="data2" id="data2">
+                <h2>141-200等 隨機升級機率</h2>
+                <div class="table_d">
+                    <div>等級</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                </div>
+                <div class="table_d2" v-for="a in 59">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </section>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    實際效果依使用為準，此網頁僅提供模擬<br>
+                    感謝巴哈姆特網友g555555g（玥御夜）提供200等以上經驗數據、200等以下參考韓國官方數據 </div>
+                <div class="col-md-6 ">
+                    <!-- hitwebcounter Code START -->
+                    本網頁累計使用人數<br>
+                    <!-- hitwebcounter Code START -->
+                    <a href="https://www.hitwebcounter.com" target="_blank">
+                        <img src="https://hitwebcounter.com/counter/counter.php?page=7792232&style=0010&nbdigits=5&type=ip&initCount=https:"
+                            title="Free Counter" Alt="web counter" border="0" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/newage_exp.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/data.js"></script>
+
+</body>
+
+</html>
