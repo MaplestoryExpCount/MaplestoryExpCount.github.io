@@ -1,4 +1,4 @@
-webtitle = '新楓之谷&nbsp;V253&nbsp; Savior&nbsp; 版本&nbsp;經驗成長秘藥計算機 Beta 1.0.8'
+webtitle = '新楓之谷&nbsp;V258&nbsp; New Age &nbsp; 版本&nbsp;經驗成長秘藥計算機 Beta 1.1'
 
 $('.webtitle').html(webtitle);
 document.title = $('.webtitle').text();
